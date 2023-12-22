@@ -1,0 +1,1877 @@
+{
+	"info": {
+		"_postman_id": "b3bd3ad2-5b1b-4195-99bf-9aa93c7b7cf3",
+		"name": "udacity-fsnd-capstone",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9944598"
+	},
+	"item": [
+		{
+			"name": "ExecutiveProducer",
+			"item": [
+				{
+					"name": "/actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"value contains actors array\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.actors).to.be.an('array')\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/actors",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/actors/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Jamie Foxx\",\r\n    \"date_of_birth\": \"13/12/1967\",\r\n    \"gender\": \"Male\"\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/actors",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Timothy Francis Robbins\"\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/actors/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Django Unchained\",\r\n    \"release_date\": 2012,\r\n    \"actors\": [\"Jamie Foxx\"]\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/movies",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"actors\": [\"Robert De Niro\"]\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/movies/16",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies",
+								"16"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors/9",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/actors/9",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors/100",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404 bacause id is invalid\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/actors/100",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors",
+								"100"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"value contains movies array\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.movies).to.be.an('array')\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/movies",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/movies/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies/28",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/movies/28",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies",
+								"28"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies/100",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404 bacause id is invalid\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/movies/100",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies",
+								"100"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlVLSTBCdG1Wa1BXVUxhdHh0VU0zSiJ9.eyJpc3MiOiJodHRwczovL2Rldi1qM3E0NGhoNW4zc3YwbmRxLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2NTg0MjdiNTMxZjkwNGM2MDFmYzQ2ZjQiLCJhdWQiOiJjYXBzdG9uZSIsImlhdCI6MTcwMzI0MTk0MSwiZXhwIjoxNzAzMzI4MzQxLCJhenAiOiJoMFh5a0oyM2pxS2V1NVNoajh0MkZJQ1UxNW9JcmI5WCIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9ycyIsImRlbGV0ZTptb3ZpZXMiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3JzIiwicG9zdDptb3ZpZXMiXX0.cC6xOezXxD-7i680O-04RkgvZXYdzMLW79GAemRZ0QkEHUtHbh5rYRJfb4AC0eXFXxvTdpxdcBwXYPIG1fzOhdLp6kaVJqdfUjdAFOG-UJrJ24WpOAqr5srI3W8pNKfDASM9kdMb9BLu1RUlWAtnPOMolv9LaaDtZlA_2YyT_w6DMkhcA8CkBQbvTiLEIMk11KU5UfcYHNTiE4f5V8eWeX7rUKzTK6EgElg1WMzNhhEVFiU8KJpoi1srRU8GQDBaI1ZhNgQiR7Jsn1-2G4MW11QtbmRWM3BZFgmHRUJxqkOqTemxdy3LSp5xnSa8ehNVsv1zmqUlDXFX9GPMeQGJHA",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "CastingDirector",
+			"item": [
+				{
+					"name": "/actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"value contains actors array\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.actors).to.be.an('array')\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/actors",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/actors/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Leonardo DiCaprio\",\r\n    \"date_of_birth\": \"11/11/1974\",\r\n    \"gender\": \"Male\"\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/actors",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Alfredo James Pacino\"\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/actors/4",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403, since credentials are valid but user does not have the permissions\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Django Unchained\",\r\n    \"release_date\": 2012,\r\n    \"actors\": [\"Jamie Foxx\"]\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/movies",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"actors\": [\"Leonardo DiCaprio\"]\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/movies/12",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors/6",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/actors/6",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors/100",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404 bacause id is invalid\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/actors/100",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors",
+								"100"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"value contains movies array\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.movies).to.be.an('array')\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/movies",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/movies/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies/28",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403, since credentials are valid but user does not have the permissions\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/movies/28",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies",
+								"28"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies/100",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404 because id is invalid\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/movies/100",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies",
+								"100"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlVLSTBCdG1Wa1BXVUxhdHh0VU0zSiJ9.eyJpc3MiOiJodHRwczovL2Rldi1qM3E0NGhoNW4zc3YwbmRxLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2NTg0Mjc3OGZlZGMwZGZlY2JkZWY0YzUiLCJhdWQiOiJjYXBzdG9uZSIsImlhdCI6MTcwMzI0MjEwMiwiZXhwIjoxNzAzMzI4NTAyLCJhenAiOiJoMFh5a0oyM2pxS2V1NVNoajh0MkZJQ1UxNW9JcmI5WCIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9ycyIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiXX0.RyJ3W6RuEemi48-OPJzOADv4JgNWGGaRT4iBrl_Bt0gDLkcC0yCOT5HsX_TATK8aDQxNqCuqDAWdn_LGuilDpstH2NjPjSleORhkHpksY7lK-WuDFGu2-6hA76WT0F2vc5lFJTQuX8yuyUENKydi6PWnjh2yLmhdCgMN5fS-2hzLjchyrx2Yrp7C3tqgp9DcKIqbZ7AcA-4Fa1xOuWdMfNJ7efjagisS40nrXN5szzU_8A_IMRfnyrAX9kB9O3LQzha22apeONTshr9Jfb2gSEUDG55wyQ5W2QkSRTTgva6xfTW7GoZKmmzXRf7hAIzR8XF42YRldLbnZwEG33SiRA",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "CastingAssistant",
+			"item": [
+				{
+					"name": "/actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"value contains actors array\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.actors).to.be.an('array')\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/actors",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/actors/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403, since credentials are valid but user does not have the permissions\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Christoph Waltz\",\r\n    \"date_of_birth\": \"04/10/1956\",\r\n    \"gender\": \"Male\"\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/actors",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403, since credentials are valid but user does not have the permissions\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Alfredo James Pacino\"\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/actors/4",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403, since credentials are valid but user does not have the permissions\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Django Unchained\",\r\n    \"release_date\": 2012,\r\n    \"actors\": [\"Jamie Foxx\"]\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/movies",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403, since credentials are valid but user does not have the permissions\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"actors\": [\"Leonardo DiCaprio\"]\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/movies/12",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors/6",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403, since credentials are valid but user does not have the permissions\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/actors/12",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors/100",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404 bacause id is invalid\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/actors/100",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors",
+								"100"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"value contains movies array\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.movies).to.be.an('array')\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/movies",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/movies/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies/28",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403, since credentials are valid but user does not have the permissions\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/movies/28",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies",
+								"28"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies/100",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404 because id is invalid\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/movies/100",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies",
+								"100"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlVLSTBCdG1Wa1BXVUxhdHh0VU0zSiJ9.eyJpc3MiOiJodHRwczovL2Rldi1qM3E0NGhoNW4zc3YwbmRxLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2NTg0MjZjOGRjYTEyMjJmM2QwMmU1OGIiLCJhdWQiOiJjYXBzdG9uZSIsImlhdCI6MTcwMzI0MjIwNCwiZXhwIjoxNzAzMzI4NjA0LCJhenAiOiJoMFh5a0oyM2pxS2V1NVNoajh0MkZJQ1UxNW9JcmI5WCIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZ2V0OmFjdG9ycyIsImdldDptb3ZpZXMiXX0.d-fL2M1UTjj1FCKb2oWhV9HYJvLhuJuQ38YbVJsXBFYwbCpOtbH2p3cUdWVUAS37tn1sy7bzrBF83a631-WWLsUEMYWDiraCkC60QwRTH2F-YGSrLXYdWWcXrH9ShUoseTuqycGE2DtmYFPYuhlNH3iJ69T6mqcDGg4Ke_Y8GVE5MLZK1IGhKclTod1fRTDcsHyFeFmlcSJYKIwPCb1d-rKf8y-9gc4tA05TD_pl-REmWSkYRe_Y-eOuM784RkL5DuyeCWHNtg-G-I3o6v_pyGvWv_SoybsbLlSij_vILQkb7aBucB4zuvJ5uyaHKKuUuyCiC20wfVRAcFaE9VO_NA",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "public",
+			"item": [
+				{
+					"name": "greeting",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401, since no credentials have been provided\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/actors",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401, since no credentials have been provided\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/actors/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401, since no credentials have been provided\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Christoph Waltz\",\r\n    \"date_of_birth\": \"04/10/1956\",\r\n    \"gender\": \"Male\"\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/actors",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401, since no credentials have been provided\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Alfredo James Pacino\"\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/actors/4",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401, since no credentials have been provided\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Django Unchained\",\r\n    \"release_date\": 2012,\r\n    \"actors\": [\"Jamie Foxx\"]\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/movies",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401, since no credentials have been provided\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"actors\": [\"Leonardo DiCaprio\"]\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/movies/12",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors/6",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401, since no credentials have been provided\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/actors/12",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/actors/100",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401, since no credentials have been provided\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/actors/100",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"actors",
+								"100"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401, since no credentials have been provided\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/movies",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401, since no credentials have been provided\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/movies/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies/28",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401, since no credentials have been provided\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/movies/28",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies",
+								"28"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/movies/100",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401, since no credentials have been provided\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/movies/100",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"movies",
+								"100"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "localhost:5000",
+			"type": "string"
+		}
+	]
+}
