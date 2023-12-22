@@ -534,8 +534,7 @@ Additionally, a postman collection (`udacity-fsnd-capstone.postman_collection.js
 The collection contains tests for each role and endpoint to perform the calls.
 
 ## Author and Acknowledgement
-Oliver Kröning contributed to all files within this project.
-The following files are provided by [Udacity](https://www.udacity.com/):
+Oliver Kröning contributed to all files within this project with exception of the following files, which were provided by [Udacity](https://www.udacity.com/):
 - `Procfile`
 - `setup.sh`
 - `manage.py`
