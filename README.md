@@ -92,13 +92,13 @@ These tables are created and managed using SQLAlchemy, a SQL toolkit and Object-
 - `id`: Integer - Primary key for the actor
 - `name`: String - Name of the actor
 - `date_of_birth`: Date - Date of birth of the actor
-- gender: String - Gender of the actor (e.g., "Male" or "Female")
+- `gender`: String - Gender of the actor (e.g., "Male" or "Female")
 
 #### Movies Table
 - Table name: `movies`
-- id: Integer - Primary key for the movie
-- title: String - Title of the movie
-- release_date: Integer - Release year of the movie
+- `id`: Integer - Primary key for the movie
+- `title`: String - Title of the movie
+- `release_date`: Integer - Release year of the movie
 
 #### actor_to_movies_table (Association Table)
 This table establishes a many-to-many relationship between actors and movies.
@@ -152,7 +152,7 @@ The role has the following permissions:
 - **Sample Request**
   - `https://myfsnd-capstone-app-82599-1d98d9dff28c.herokuapp.com/`
 <details>
-<summary>- **Sample Response**</summary>
+<summary>Sample Response</summary>
 ```
 {
     "hello": "Hello!!!!! You are doing great in this Udacity project."
@@ -165,19 +165,382 @@ The role has the following permissions:
   - API endpoint that contains the `data.short()` data representation of all actors in the database ordered by id.
 
 - **Required Permissions**
-  - The user must have the permission `get:actors` to perform the call this endpoint.
+  - The user must have the permission `get:actors` to perform the call on this endpoint.
 
 - **Sample Request**
   - `https://myfsnd-capstone-app-82599-1d98d9dff28c.herokuapp.com/actors`
 
 <details>
-<summary>- **Sample Response**</summary>
+<summary>Sample Response</summary>
 ```
 {
-    "hello": "Hello!!!!! You are doing great in this Udacity project."
+    "actors": [
+        {
+            "id": 2,
+            "name": "Morgan Freeman"
+        },
+        {
+            "id": 3,
+            "name": "Marlon Brando"
+        },
+        {
+            "id": 5,
+            "name": "Robert De Niro"
+        },
+        {
+            "id": 7,
+            "name": "Heath Ledger"
+        },
+        {
+            "id": 8,
+            "name": "Arnold Schwarzenegger"
+        },
+        {
+            "id": 10,
+            "name": "Leonardo DiCaprio"
+        },
+        {
+            "id": 1,
+            "name": "Timothy Francis Robbins"
+        },
+        {
+            "id": 11,
+            "name": "Leonardo DiCaprio"
+        },
+        {
+            "id": 4,
+            "name": "Alfredo James Pacino"
+        }
+    ],
+    "success": true
 }
 ```
 </details>
+
+#### GET `/actors/<int:actor_id>`
+- **Description**
+  - API endpoint that contains the `data.format()` data representation of a specific actor in the database by a given id.
+
+- **Required Permissions**
+  - The user must have the permission `get:actors` to perform the call on this endpoint.
+
+- **Sample Request**
+  - `https://myfsnd-capstone-app-82599-1d98d9dff28c.herokuapp.com/actors/1`
+<details>
+<summary>Sample Response</summary>
+```
+{
+    "actor": {
+        "date_of_birth": "16/10/1958",
+        "gender": "Male",
+        "id": 1,
+        "movies": [
+            "The Shawshank Redemption"
+        ],
+        "name": "Tim Robbins"
+    },
+    "success": true
+}
+```
+</details>
+
+#### DELETE `/actors/<int:actor_id>`
+- **Description**
+  - API endpoint to remove a specific actor from the database by id.
+
+- **Required Permissions**
+  - The user must have the permission `delete:actors` to perform the call on this endpoint.
+
+- **Sample Request**
+  - `https://myfsnd-capstone-app-82599-1d98d9dff28c.herokuapp.com/actors/7`
+<details>
+<summary>Sample Response</summary>
+```
+{
+    "deleted_actor": 7,
+    "success": true
+}
+```
+</details>
+
+#### POST `/actors`
+- **Description**
+  - API endpoint that allows authorized users to add a new row in the actors table in the database.
+
+- **Required Permissions**
+  - The user must have the permission `post:actors` to perform the call on this endpoint.
+
+- **Sample Request**
+  - `https://myfsnd-capstone-app-82599-1d98d9dff28c.herokuapp.com/actors`
+  - Request body:
+  - ```
+{
+    "name": "Leonardo DiCaprio",
+    "date_of_birth": "11/11/1974",
+    "gender": "Male"
+}
+```
+<details>
+<summary>Sample Response</summary>
+```
+{
+    "new_actor": {
+        "date_of_birth": "11/11/1974",
+        "gender": "Male",
+        "id": 12,
+        "movies": [],
+        "name": "Leonardo DiCaprio"
+    },
+    "success": true
+}
+```
+</details>
+
+#### PATCH `/actors/<int:actor_id>`
+- **Description**
+  - API endpoint that allows authorized users to update a specific entry in the actors table in the database.
+
+- **Required Permissions**
+  - The user must have the permission `patch:actors` to perform the call on this endpoint.
+
+- **Sample Request**
+  - `https://myfsnd-capstone-app-82599-1d98d9dff28c.herokuapp.com/actors/1`
+  - Request body:
+  - ```
+{
+    "name": "Timothy Francis Robbins"
+}
+```
+<details>
+<summary>Sample Response</summary>
+```
+{
+    "edited_actor": {
+        "date_of_birth": "16/10/1958",
+        "gender": "Male",
+        "id": 1,
+        "movies": [
+            "The Shawshank Redemption"
+        ],
+        "name": "Timothy Francis Robbins"
+    },
+    "success": true
+}
+```
+</details>
+
+#### GET `/movies`
+- **Description**
+  - API endpoint that contains the `data.short()` data representation of all movies in the database ordered by id.
+
+- **Required Permissions**
+  - The user must have the permission `get:movies` to perform the call on this endpoint.
+
+- **Sample Request**
+  - `https://myfsnd-capstone-app-82599-1d98d9dff28c.herokuapp.com/movies`
+
+<details>
+<summary>Sample Response</summary>
+```
+{
+    "movies": [
+        {
+            "id": 1,
+            "title": "The Shawshank Redemption"
+        },
+        {
+            "id": 2,
+            "title": "The Godfather"
+        },
+        {
+            "id": 3,
+            "title": "The Godfather: Part II"
+        },
+        {
+            "id": 4,
+            "title": "The Dark Knight"
+        },
+        {
+            "id": 5,
+            "title": "12 Angry Men"
+        },
+        {
+            "id": 6,
+            "title": "Schindler's List"
+        },
+        {
+            "id": 7,
+            "title": "The Lord of the Rings: The Return of the King"
+        },
+        {
+            "id": 8,
+            "title": "Pulp Fiction"
+        },
+        {
+            "id": 9,
+            "title": "The Good, the Bad and the Ugly"
+        },
+        {
+            "id": 10,
+            "title": "Fight Club"
+        }
+    ],
+    "success": true
+}
+```
+</details>
+
+#### GET `/movies/<int:movies_id>`
+- **Description**
+  - API endpoint that contains the `data.format()` data representation of a specific movie in the database by a given id.
+
+- **Required Permissions**
+  - The user must have the permission `get:movies` to perform the call on this endpoint.
+
+- **Sample Request**
+  - `https://myfsnd-capstone-app-82599-1d98d9dff28c.herokuapp.com/movies/1`
+<details>
+<summary>Sample Response</summary>
+```
+{
+    "movie": {
+        "actors": [
+            "Morgan Freeman",
+            "Timothy Francis Robbins"
+        ],
+        "id": 1,
+        "release_date": 1994,
+        "title": "The Shawshank Redemption"
+    },
+    "success": true
+}
+```
+</details>
+
+#### DELETE `/movies/<int:movie_id>`
+- **Description**
+  - API endpoint to remove a specific movies from the database by id.
+
+- **Required Permissions**
+  - The user must have the permission `delete:movies` to perform the call on this endpoint.
+
+- **Sample Request**
+  - `https://myfsnd-capstone-app-82599-1d98d9dff28c.herokuapp.com/movies/1`
+<details>
+<summary>Sample Response</summary>
+```
+{
+    "deleted_movie": 1,
+    "success": true
+}
+```
+</details>
+
+#### POST `/movies`
+- **Description**
+  - API endpoint that allows authorized users to add a new row in the movies table in the database.
+
+- **Required Permissions**
+  - The user must have the permission `post:movies` to perform the call on this endpoint.
+
+- **Sample Request**
+  - `https://myfsnd-capstone-app-82599-1d98d9dff28c.herokuapp.com/movies`
+  - Request body:
+  - ```
+{
+    "title": "Django Unchained",
+    "release_date": 2012,
+    "actors": ["Leonardo DiCaprio"]
+}
+```
+<details>
+<summary>Sample Response</summary>
+```
+{
+    "new_movie": {
+        "actors": [
+            "Leonardo DiCaprio"
+        ],
+        "id": 33,
+        "release_date": 2012,
+        "title": "Django Unchained"
+    },
+    "success": true
+}
+```
+</details>
+
+#### PATCH `/movies/<int:movie_id>`
+- **Description**
+  - API endpoint that allows authorized users to update a specific entry in the movies table in the database.
+
+- **Required Permissions**
+  - The user must have the permission `patch:movies` to perform the call on this endpoint.
+
+- **Sample Request**
+  - `https://myfsnd-capstone-app-82599-1d98d9dff28c.herokuapp.com/movies/16`
+  - Request body:
+  - ```
+{
+    "actors": ["Robert De Niro"]
+}
+```
+<details>
+<summary>Sample Response</summary>
+```
+{
+    "edited_movie": {
+        "actors": [
+            "Robert De Niro"
+        ],
+        "id": 16,
+        "release_date": 1990,
+        "title": "Goodfellas"
+    },
+    "success": true
+}
+```
+</details>
+
+### Error Handling
+Errors are returned in the following JSON format:
+```
+{
+    'success': False,
+    'error': error.status_code,
+    'message': error.error['description']
+}
+```
+
+The API returns the following types of error:
+- 400: Bad request
+- 401: Unauthorized
+- 403: Forbidden
+- 404: Not found
+- 422: Unprocessable Entity
+- 500: Internal Server Error
+
+## Testing
+To run the tests, run
+```
+drobdb -U postgres postgres_test
+createdb -U postgres -E utf8 postgres_test
+psql -U postgres postgres_test < movie_actors.psql
+python test.py
+```
+The file `test.py`contains one test for success and one test for error behavior for each end point and also tests the authorization within the error behavior.
+
+Additionally, a postman collection (`udacity-fsnd-capstone.postman_collection.json`) was added to run tests locally.
+The collection contains tests for each role and endpoint to perform the calls.
+
+## Author and Acknowledgement
+Oliver Kröning contributed to all files within this project.
+The following files are provided by [Udacity](https://www.udacity.com/):
+- `Procfile`
+- `setup.sh`
+- `manage.py`
+
+
 
 
 
